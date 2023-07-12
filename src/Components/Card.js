@@ -15,7 +15,7 @@ function Card({id,image,name,info,price,removeTour}){
         </div>
         <div className="description">
             {description} 
-            <span className="readmore" onClick={readmoreHander}>{readmore ? `Show Less`: `Read More`}</span>
+            <span className="read-more" onClick={readmoreHander}>{readmore ? `Show Less`: `Read More`}</span>
         </div>
         <button className="btn-red" onClick={() => removeTour(id)} >
             Not Interested
