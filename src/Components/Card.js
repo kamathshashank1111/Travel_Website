@@ -1,5 +1,12 @@
+import { useState } from "react";
+
 function Card({id,image,name,info,price,removeTour}){
-    let description= `${info.substring(0,200)}...`;
+    const[readmore, setReadmore]=useState(false);
+    let description= readmore?info:`${info.substring(0,200)}...`
+    function readmoreHander(){
+        setReadmore(!readmore)
+    }
+                        
     return(<div className="card">
         <img src={image} className="image" alt="The place"></img>
         <div className="tour-details">
@@ -7,7 +14,8 @@ function Card({id,image,name,info,price,removeTour}){
             <h4 className="tour-name">{name}</h4>
         </div>
         <div className="description">
-            {description}
+            {description} 
+            <span onClick={readmoreHander}>Read More</span>
         </div>
         <button className="btn-red" onClick={() => removeTour(id)} >
             Not Interested

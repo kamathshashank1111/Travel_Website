@@ -9,6 +9,18 @@ const App = () => {
     const newTours = tours.filter(tour => tour.id !==id);
     setTours(newTours);
   }
+  if(tours.length ===0){
+    return(
+      <div>
+        <div>
+          No tours left
+        </div>
+        <button onClick={()=>setTours(data)}>
+          Refresh
+        </button>
+      </div>
+    )
+  }
   return (
     <div>
       <Tours tours={tours} removeTour={removeTour}></Tours> 
